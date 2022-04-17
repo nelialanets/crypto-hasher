@@ -17,9 +17,8 @@ function Dashboard() {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
-      console.log(data)
     } catch (err) {
-      console.error(err);
+      console.error(error);
       alert("An error occured while fetching user data");
     }
   };

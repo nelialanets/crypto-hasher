@@ -2,17 +2,34 @@ import React, {useState, useEffect} from 'react'
 import { HistoricalChart } from '../config/api';
 import { CryptoState } from '../CryptoContext';
 import axios from 'axios';
-// import { ThemeProvider } from '@emotion/react';
-// import { createTheme } from '@mui/system';
 import  CircularProgress  from '@mui/material/CircularProgress';
-import {Line} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2';
+import SelectButton from '../components/SelectButton'
 import { chartDays } from '../config/data';
-import SelectButton from './SelectButton';
-
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    } from 'chart.js';
+    
+    ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+    );
 
 const CoinInfo = ({coin}) => {
 const [historicData, setHistoricData] = useState();
-const [days, setDays] = useState(1);
+const [days, setDays] = useState(365);
 const [flag, setflag] = useState(false);
 const { currency } = CryptoState();
 
@@ -25,15 +42,6 @@ const { currency } = CryptoState();
     useEffect(() => {
         fetchHistoricData();
     },[days]);
-
-    // const darkTheme = createTheme({
-    //     pallette: {
-    //         primary: {
-    //             main: "#fff",
-    //         },
-    //         type: "dark",
-    //     },
-    // });
 
     return (
             <div>
@@ -71,25 +79,19 @@ const { currency } = CryptoState();
                             },
                           }}
                         />
-                        <div
-                        style={{
+                        <div style={{
                             display: "flex",
                             marginTop: 20,
                             justifyContent: "space-around",
-                            width: "100%",
-                        }}
-                        >
-                            {chartDays.map((day) => (
-                                <SelectButton
-                                    key={day.value}
-                                    onClick={() => {setDays(day.value);
-                                        setflag(false);
-                                    }}
-                                    selected={day.value === days}
-                                >
-                                    {day.label}
-                                </SelectButton>
-                                ))}
+                            width: "100%"
+                        }}>
+                        {chartDays.map((day) => (
+                            <SelectButton
+                                key={day.value}
+                                onClick={()=> setDays(day.value)}
+                                selected={day.value === days}
+                            >{day.label}</SelectButton>
+                            ))}
                         </div>
                     </>
                 )}

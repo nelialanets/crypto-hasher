@@ -1,0 +1,11 @@
+.selectButton {
+    border: "1px solid gold";
+    border-radius: 5;
+    padding: 10;
+    padding-left: 20;
+    padding-right: 20;
+    cursor: pointer;
+    background-color: "gold";
+    color: "black";
+    font-weight: 700;
+}

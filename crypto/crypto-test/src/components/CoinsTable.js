@@ -36,7 +36,7 @@ useEffect(() => {
   console.log(coins)
 
     return(
-        "hello world"
+        "CoinTable"
     )
 }
 

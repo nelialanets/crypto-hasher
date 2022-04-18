@@ -20,8 +20,6 @@ const Coinboard = () => {
         setTrendingCoins(data);
     };
 
-    console.log(trending)
-
     useEffect(() => {
         fetchTrendingCoins();
     }, []);

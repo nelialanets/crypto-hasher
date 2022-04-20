@@ -44,7 +44,11 @@ const { currency } = CryptoState();
     },[days]);
 
     return (
-            <div>
+            <div
+                style={{
+                    backgroundColor: "gold",
+                }}
+            >
             {!historicData | flag===false ? (
                 <CircularProgress
                 style={{ color: 'gold'}}
@@ -54,6 +58,11 @@ const { currency } = CryptoState();
             ) : (
                 <>
                 <Line
+
+                    style={{
+                        backgroundColor: "black",
+
+                    }}
                     data={{
                         labels: historicData.map((coin) => {
                             let date = new Date(coin[0]);

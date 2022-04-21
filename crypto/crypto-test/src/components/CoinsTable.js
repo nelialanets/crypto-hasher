@@ -29,7 +29,7 @@ const [search, setSearch] = useState("");
 const [page, setPage] = useState(1);
 
 
-const history = useNavigate();
+const navigate = useNavigate();
 
 const { currency } = CryptoState();
 
@@ -97,10 +97,10 @@ useEffect(() => {
                             const profit = row.price_change_percentage_24 > 0;
                             return (
                                 <TableRow 
-                                    onClick={() => history.push(`/coins/${row.id}`)}
+                                    onClick={() => navigate(`/coins/${row.id}`)}
                                     key={row.name}
                                 >
-                                    <TableCell 
+                                    <TableCell
                                         component='th' 
                                         scope='row'
                                         style={{
@@ -137,9 +137,10 @@ useEffect(() => {
                                                 </span>
                                             </div>
                                     </TableCell>
-                                    <TableCell align='right'>
+                                    <TableCell 
+                                        align="right">
                                         ${" "}
-                                    {numberWithCommas(row.current_price.toFixed(2))}  
+                                        {numberWithCommas(row.current_price.toFixed(2))}  
                                     </TableCell>
                                     <TableCell
                                         align="right"
@@ -151,10 +152,10 @@ useEffect(() => {
                                         {profit && "+"}
                                         {row.price_change_percentage_24h.toFixed(2)}%
                                         </TableCell>
-                                        <TableCell align="right">
-                                         ${" "}
-                                        {numberWithCommas(
-                                            row.market_cap.toString().slice(0, -6)
+                                        <TableCell 
+                                            align="right">
+                                            ${" "}
+                                            {numberWithCommas(row.market_cap.toString().slice(0, -6)
                                         )}
                                         M
                                     </TableCell>
@@ -166,14 +167,14 @@ useEffect(() => {
                     )} 
                 </TableContainer>
                 <Pagination
-          count={(handleSearch()?.length / 10).toFixed(0)}
-          style={{
+                count={parseInt(handleSearch()?.length / 10).toFixed(0)}
+                style={{
                 padding: 20,
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-            }}
-            onChange={(_, value) => {
+                }}
+                onChange={(_, value) => {
                 setPage(value);
                 window.scroll(0, 450);
           }}

@@ -17,15 +17,14 @@ import {
   addDoc,
 } from "firebase/firestore";
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDOSnCTrOyA1JVb-YfIXEX8KemowDKmCw4",
-  authDomain: "crypto-test-5c956.firebaseapp.com",
-  databaseURL: "https://crypto-test-5c956-default-rtdb.firebaseio.com",
-  projectId: "crypto-test-5c956",
-  storageBucket: "crypto-test-5c956.appspot.com",
-  messagingSenderId: "676318453346",
-  appId: "1:676318453346:web:afec6c902243e60e25fb3b",
-  measurementId: "G-JMZJV9TH0J"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain:process.env.REACT_APP_API_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket:process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId:process.env.REACT_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -69,7 +68,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     const user = res.user;
     await addDoc(collection(db, "users"), {
       uid: user.uid,
-      name,
+      password,
       authProvider: "local",
       email,
     });

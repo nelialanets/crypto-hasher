@@ -50,27 +50,24 @@ const fetchCoins = async () => {
 
   useEffect(() => {
     if (currency === "USD") setSymbol("$");
-
-    fetchCoins();
-
-}, [currency]);
+      fetchCoins();
+    }, [currency]);
 
   return <Crypto.Provider 
             value={{ 
-                currency, 
-                symbol, 
-                setCurrency,
-                alert,
-                setAlert,
-                user,
-                coins,
-                loading,
-                watchlist
+              currency, 
+              symbol, 
+              setCurrency,
+              alert,
+              setAlert,
+              user,
+              coins,
+              loading,
+              watchlist,
             }}
-        
-        >
-      {children}
-  </Crypto.Provider>
+          >
+          {children}
+    </Crypto.Provider>
 };
 
 export default CryptoContext

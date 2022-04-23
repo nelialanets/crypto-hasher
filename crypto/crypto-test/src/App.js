@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import CryptoPage from "./pages/CryptoPage";
 import Header from "./components/Header";
 import CoinsPage from "./pages/CoinsPage";
+import Alert from './components/Alert'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/coins/:id" element={<CoinsPage/>} />
         </Routes>
         </div>
+        <Alert />
       </Router>
     </div>
   );

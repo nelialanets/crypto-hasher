@@ -7,7 +7,7 @@ import {CryptoState} from "../CryptoContext"
 import CoinInfo from '../components/CoinInfo';
 import "../styles/Sidebar.css"
 import { Typography, LinearProgress } from '@mui/material';
-import parse from 'react-html-parser';
+import parse from 'html-react-parser';
 
   export function numberWithCommas(x){
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

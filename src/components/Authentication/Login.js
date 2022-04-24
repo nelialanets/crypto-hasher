@@ -1,17 +1,37 @@
+import { initializeApp } from "firebase/app";
 import React from 'react'
 import { useState } from 'react'
 import { Box, TextField } from '@mui/material'
 import Button from '@mui/material/Button';
 import { CryptoState } from '../../CryptoContext'
+import fireConfig from "../../config/fireConfig";
+import {
+    GoogleAuthProvider,
+    getAuth,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    signOut,
+  } from "firebase/auth";
+  import {
+    getFirestore,
+    query,
+    getDocs,
+    collection,
+    where,
+  } from "firebase/firestore";
 
-const 
-Login = ({handleClose}) => {
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
+  const app = initializeApp(fireConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const Login = ({handleClose}) => {
+    const[email, setEmail] = useState(" ")
+    const[password, setPassword] = useState(" ")
 
     const {setAlert} = CryptoState();
 
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
         if(!email || !password) {
             setAlert({
                 open: true,
@@ -20,6 +40,30 @@ Login = ({handleClose}) => {
             });
             return;
         }
+       try{
+
+        const res = await signInWithEmailAndPassword (
+            auth,
+             email,
+              password
+              );
+        setAlert({
+            open: true,
+            message: `Log In Successful. Wecome ${res.user.email}`,
+            type: 'success',
+        });
+        // await signInWithEmailAndPassword(auth, email, password);
+       
+        handleClose();
+
+       }catch (error){
+           setAlert({
+               open: true,
+               message: error.message,
+               type:'error',
+
+           })
+       }
     }
   
     return (
@@ -51,7 +95,7 @@ Login = ({handleClose}) => {
         variant='contained'
         size='large'
         style={{
-            backgroundColor: '#EEBC1D'
+            backgroundColor: '#29D7B9'
         }}
         onClick={handleSubmit}
     >Login</Button>

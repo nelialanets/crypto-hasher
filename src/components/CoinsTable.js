@@ -77,7 +77,7 @@ useEffect(() => {
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                                      <TableCell
                                         style={{
-                                            color: "black",
+                                            color: "white",
                                             fontWeight: "700",
                                             fontFamily: "Montserrat",
                                         }}
@@ -101,6 +101,7 @@ useEffect(() => {
                                     key={row.name}
                                 >
                                     <TableCell
+                                        
                                         component='th' 
                                         scope='row'
                                         style={{

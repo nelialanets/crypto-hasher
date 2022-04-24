@@ -1,10 +1,20 @@
+import { initializeApp } from "firebase/app";
 import React from 'react'
 import { useState } from 'react'
 import { Box } from '@mui/system';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import { CryptoState } from '../../CryptoContext'
-import  {registerWithEmailAndPassword, auth}  from '../../firebase';
+import  {auth, createUserWithEmailAndPassword}  from '../../firebase';
+import {
+    getFirestore,
+    collection,
+    addDoc,
+  } from "firebase/firestore";
+import fireConfig from "../../config/fireConfig";
+    
+  const app = initializeApp(fireConfig);
+  const db = getFirestore(app);
 
 const Signup = ({handleClose}) => {
 
@@ -25,11 +35,20 @@ const Signup = ({handleClose}) => {
         }
 
         try {
-            const res = await registerWithEmailAndPassword(
+            const res = await 
+            createUserWithEmailAndPassword(
                 auth,
                 email, 
-                password
+                password,
                 );
+                const user = res.user;
+                await addDoc(collection(db, "users"), {
+                  uid: user.uid,
+                  password,
+                  authProvider: "local",
+                  email,
+                });
+
                 console.log(res);
 
                 setAlert({
@@ -55,7 +74,7 @@ const Signup = ({handleClose}) => {
             flexDirection: 'column',
             gap: '20px',
         }}
-    >
+    >      
     <TextField 
         variant='outlined'
         type='email'

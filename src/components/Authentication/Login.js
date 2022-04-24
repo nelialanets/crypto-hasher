@@ -2,13 +2,24 @@ import React from 'react'
 import { useState } from 'react'
 import { Box, TextField } from '@mui/material'
 import Button from '@mui/material/Button';
+import { CryptoState } from '../../CryptoContext'
 
 const 
 Login = ({handleClose}) => {
     const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
 
+    const {setAlert} = CryptoState();
+
     const handleSubmit = () => {
+        if(!email || !password) {
+            setAlert({
+                open: true,
+                message: "Please fill all the Fields",
+                type: "error",
+            });
+            return;
+        }
     }
   
     return (

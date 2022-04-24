@@ -113,11 +113,9 @@ useEffect(() => {
                                     key={row.name}
                                     style={{backgroundColor:"#424353", 
                                     
-                                    }}
-                                >
-                                        
-                                    <TableCell 
+                                    }}>
 
+                                    <TableCell
                                         component='th' 
                                         scope='row'
                                         style={{

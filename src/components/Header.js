@@ -8,6 +8,8 @@ import { CryptoState } from '../CryptoContext';
 import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
 
+import { fontWeight } from '@mui/system';
+
 
 const darkTheme = createTheme({
   palette: { 
@@ -23,15 +25,29 @@ const navigate = useNavigate();
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
-      <AppBar color="transparent" position='static'>
+      <AppBar  position='static'
+      sx={{
+        backgroundColor:"#424353",
+        direction:'flex',
+        color:"#29D7B9",
+        fontWeight:'300',
+        
+      }
+
+      } >
         <Container>
           <Toolbar>
             <Typography
               onClick={() => navigate("/cryptopage")}
               variant="h6"
-            >Crypto-Hasher
+              
+              sx={{
+                m:-11
+
+              }}
+            >Crypto-Hasher 
             </Typography>
-              <Select 
+              {/* <Select 
                 variant="outlined"
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -41,7 +57,7 @@ const navigate = useNavigate();
               >
                 <MenuItem>USD</MenuItem>
                 <MenuItem>SNAILS</MenuItem>
-              </Select>
+              </Select> */}
               <AuthModal />
               {/* <UserSidebar /> */}
           </Toolbar>

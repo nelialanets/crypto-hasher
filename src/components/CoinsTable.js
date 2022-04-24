@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
+import '../styles/CoinTable.css'
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -25,7 +26,7 @@ export function numberWithCommas(x) {
 export default function CoinsTable(){
 const [coins, setCoins] = useState([]);
 const [loading, setLoading] = useState(false);
-const [search, setSearch] = useState("");
+const [search, setSearch] = useState('');
 const [page, setPage] = useState(1);
 
 
@@ -57,7 +58,7 @@ useEffect(() => {
         <div>
             <Typography
                 variant='h4'
-                style={{ margin: 18, fontFamily: "Montserrat"}}
+                style={{ margin: 18, fontFamily: "Montserrat" }}
             >
                 Cryptocurrency Prices by Market Cap
             </Typography>
@@ -69,15 +70,16 @@ useEffect(() => {
                 />
                 <TableContainer  component={Paper}>
                    {loading ? (
-                           <LinearProgress style={{ backgroundColor: "gold"}} />
+                           <LinearProgress style={{ backgroundColor: "green"}} />
                        ) : (
                         <Table aria-label="simple table">
-                            <TableHead style={{ backgroundColor: "#EEBC1D"}}>
-                                <TableRow>
+                            <TableHead style={{ backgroundColor: "black"}}>
+                                <TableRow 
+                                >
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                                      <TableCell
                                         style={{
-                                            color: "black",
+                                            color: "white",
                                             fontWeight: "700",
                                             fontFamily: "Montserrat",
                                         }}
@@ -90,22 +92,26 @@ useEffect(() => {
                                 </TableRow>
                             </TableHead>
 
-                        <TableBody>
+                        <TableBody className='row'  >
                             {handleSearch()
                             .slice((page - 1) * 10, (page - 1) * 10 + 10)
                             .map((row) => {
                             const profit = row.price_change_percentage_24 > 0;
                             return (
-                                <TableRow 
+                                <TableRow className='row'
                                     onClick={() => navigate(`/coins/${row.id}`)}
                                     key={row.name}
+                                    style={{backgroundColor:"#424353", 
+                                    
+                                    }}
                                 >
-                                    <TableCell
+                                    <TableCell 
                                         component='th' 
                                         scope='row'
                                         style={{
                                             display: "flex",
                                             gap: 15,
+                                            
                                         }}
                                             >
                                             <img
@@ -118,12 +124,14 @@ useEffect(() => {
                                                 style={{
                                                     display: "flex",
                                                     flexDirection: "column",
+                                                    
                                                 }}
                                             >
                                                 <span
                                                     style={{
                                                         textTransform: "uppercase",
                                                         fontSize: 22,
+                                                        color:'white'
                                                     }}
                                                 >
                                                     {row.symbol}
@@ -147,6 +155,7 @@ useEffect(() => {
                                         style={{
                                             color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                                             fontWeight: 500,
+
                                         }}
                                         >
                                         {profit && "+"}

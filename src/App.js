@@ -16,7 +16,6 @@ function App() {
       <Router>
         <div>
           <Header />
-          <h1>Hello</h1>
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/register" element={<Register />} />

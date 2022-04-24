@@ -58,7 +58,12 @@ useEffect(() => {
         <div>
             <Typography
                 variant='h4'
-                style={{ margin: 18, fontFamily: "Montserrat" }}
+                sx={{ m: 10,
+                    display:'flex',
+                     fontFamily: "Montserrat",
+                     alignItems:'center',
+                     justifyContent:'center',
+                      color:'white'}}
             >
                 Cryptocurrency Prices by Market Cap
             </Typography>
@@ -66,6 +71,7 @@ useEffect(() => {
                 label="Search For a Crypto Currency.." 
                 variant='outlined'
                     style={{ marginBottom: 20, with: "100%"}}
+
                     onChange={(e)=>setSearch(e.target.value)}
                 />
                 <TableContainer  component={Paper}>
@@ -73,7 +79,10 @@ useEffect(() => {
                            <LinearProgress style={{ backgroundColor: "green"}} />
                        ) : (
                         <Table aria-label="simple table">
-                            <TableHead style={{ backgroundColor: "black"}}>
+                            <TableHead sx={{
+                                color:'white',
+                                backgroundColor:'black', opacity: 0.6
+                            }}>
                                 <TableRow 
                                 >
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
@@ -92,7 +101,8 @@ useEffect(() => {
                                 </TableRow>
                             </TableHead>
 
-                        <TableBody className='row'  >
+                        <TableBody className='row'
+                        sx={{color:'white'}}>
                             {handleSearch()
                             .slice((page - 1) * 10, (page - 1) * 10 + 10)
                             .map((row) => {

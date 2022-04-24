@@ -12,7 +12,7 @@ import Alert from './components/Alert'
 function App() {
 
   return (
-    <div className={App}>
+    <div className='App-main'>
       <Router>
         <div>
           <Header />

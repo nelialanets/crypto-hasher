@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  color: white;
 }
 
 a {
@@ -12,6 +13,10 @@ a {
   color: purple;
 }
 
+.App-main{
+  background-image: linear-gradient(to right, #141e30, #243b55);
+
+}
 .login {
   height: 100vh;
   width: 100vw;

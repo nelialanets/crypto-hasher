@@ -78,6 +78,7 @@ const Coinboard = () => {
                 autoPlay
                 items={items}
         />
+        
     </div>
   )
 }

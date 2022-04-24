@@ -28,6 +28,7 @@ const Coinboard = () => {
         let profit = coin.price_change_percentage_24h >= 0;
 
         return(
+            
             <Link className='carouselItem' to={`/coins/${coin.id}`}>
                 <img 
                     src={coin?.image}

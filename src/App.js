@@ -12,11 +12,10 @@ import Alert from './components/Alert'
 function App() {
 
   return (
-    <div className={App}>
+    <div className='App-main'>
       <Router>
         <div>
           <Header />
-          <h1>Hello</h1>
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/register" element={<Register />} />

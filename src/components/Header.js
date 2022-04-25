@@ -54,7 +54,9 @@ const navigate = useNavigate();
               }}
             >Crypto-Hasher 
             </Typography>
+
               {user ? <UserSidebar /> : <AuthModal />}
+              
           </Toolbar>
         </Container>
     </AppBar>

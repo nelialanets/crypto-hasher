@@ -3,20 +3,15 @@ import Drawer from '@mui/material/Drawer';
 import { CryptoState } from '../CryptoContext';
 import { Avatar } from '@mui/material';
 import { Button } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import '../index.css'
-
-
-const logOut = () => {
-
-}
+import { signOut } from 'firebase/auth';
+import {auth} from '../firebase';
 
 export default function UserSidebar() {
   const [state, setState] = React.useState({
     right: false,
   });
 
-    const {user} = CryptoState();
+    const {user, setAlert} = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -25,6 +20,18 @@ export default function UserSidebar() {
 
     setState({ ...state, [anchor]: open });
   };
+//   const logOut = () => {
+//     signOut(auth);
+//     setAlert({
+//       open: true,
+//       type: "success",
+//       message: "Logout Successfull !",
+//     });
+
+//     toggleDrawer();
+//   };
+
+
 
   return (
     <div>
@@ -93,6 +100,7 @@ export default function UserSidebar() {
                 {user.displayName || user.email}
             </span>
             <Button
+                // onClick={logOut()}
                 sx={{
                     height: 50,
                     padding: 5,
@@ -108,5 +116,5 @@ export default function UserSidebar() {
         </React.Fragment>
       ))}
     </div>
-  );
-}
+  )
+};

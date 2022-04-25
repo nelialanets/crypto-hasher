@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import { MenuItem, Select, Toolbar, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
-import UserSidebar from './UserSidebar';
+// import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
 
 import { fontWeight } from '@mui/system';
@@ -18,7 +18,7 @@ const darkTheme = createTheme({
 });
 
 const Header = () => {
-const {currency, setCurrency} = CryptoState();
+const {currency, setCurrency, user } = CryptoState();
  
 const navigate = useNavigate();
 
@@ -47,19 +47,9 @@ const navigate = useNavigate();
               }}
             >Crypto-Hasher 
             </Typography>
-              {/* <Select 
-                variant="outlined"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={currency}
-                style={{ width: 100, height: 40, marginLeft: 15 }}
-                onChange={(e) => setCurrency(e.target.value)}
-              >
-                <MenuItem>USD</MenuItem>
-                <MenuItem>SNAILS</MenuItem>
-              </Select> */}
-              <AuthModal />
-              {/* <UserSidebar /> */}
+              { user ? 'Logout': <AuthModal />}
+              {/* <AuthModal /> */}
+             
           </Toolbar>
         </Container>
     </AppBar>

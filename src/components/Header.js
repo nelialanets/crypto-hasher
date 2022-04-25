@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import { MenuItem, Select, Toolbar, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
-// import UserSidebar from './UserSidebar';
+import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
 import { fontWeight } from '@mui/system';
 
@@ -17,7 +17,7 @@ const darkTheme = createTheme({
 });
 
 const Header = () => {
-const {currency, setCurrency, user } = CryptoState();
+const {currency, setCurrency, user} = CryptoState();
  
 const navigate = useNavigate();
 
@@ -30,25 +30,31 @@ const navigate = useNavigate();
         direction:'flex',
         color:"#29D7B9",
         fontWeight:'300',
-        
       }
 
       } >
-        <Container>
+        <Container
+          sx={{
+            height: 100,
+            display: 'flex',
+
+          }}
+        >
           <Toolbar>
             <Typography
               onClick={() => navigate("/cryptopage")}
               variant="h6"
               
               sx={{
-                m:-11
+                m:-11,
+                display: 'flex',
+                marginLeft: -50,
+                height: 2,
 
               }}
             >Crypto-Hasher 
             </Typography>
-              { user ? 'Logout': <AuthModal />}
-              {/* <AuthModal /> */}
-             
+              {user ? <UserSidebar /> : <AuthModal />}
           </Toolbar>
         </Container>
     </AppBar>

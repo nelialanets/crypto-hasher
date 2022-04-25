@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { createContext } from 'react'
 import { onSnapshot, doc } from 'firebase/firestore';
 import { auth, db } from "./firebase";
+import { onAuthStateChanged } from 'firebase/auth';
 
 const Crypto = createContext();
 
@@ -21,6 +22,14 @@ const [user, setUser] = useState(null);
 const [coins, setCoins] = useState([]);
 const [loading, setLoading] = useState(false);
 const [watchlist, setWatchlist] = useState([]);
+
+
+useEffect(() => {
+  onAuthStateChanged(auth, user => {
+    if(user)setUser(user);
+    else setUser(null);
+  })
+}, [])
 
 useEffect(() => {
     if (user) {

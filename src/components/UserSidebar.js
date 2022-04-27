@@ -20,16 +20,18 @@ export default function UserSidebar() {
 
     setState({ ...state, [anchor]: open });
   };
-//   const logOut = () => {
-//     signOut(auth);
-//     setAlert({
-//       open: true,
-//       type: "success",
-//       message: "Logout Successfull !",
-//     });
 
-//     toggleDrawer();
-//   };
+  
+  const logOut = () => {
+    signOut(auth);
+    setAlert({
+      open: true,
+      type: "success",
+      message: "Logout Successfull !",
+    });
+
+    toggleDrawer();
+  };
 
 
 
@@ -100,7 +102,7 @@ export default function UserSidebar() {
                 {user.displayName || user.email}
             </span>
             <Button
-                // onClick={logOut()}
+                onClick={logOut}
                 sx={{
                     height: 50,
                     padding: 5,

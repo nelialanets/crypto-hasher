@@ -22,7 +22,7 @@ const {currency, setCurrency, user} = CryptoState();
 const navigate = useNavigate();
 
   return (
-    <div>
+    <>
       <ThemeProvider theme={darkTheme}>
       <AppBar  position='static'
       sx={{
@@ -52,16 +52,16 @@ const navigate = useNavigate();
                 height: 2,
 
               }}
-            >Crypto-Hasher 
+            >Crypto-Hasherrrrrrrrrrrrrrrrrrd
             </Typography>
 
               {user ? <UserSidebar /> : <AuthModal />}
-              
+
           </Toolbar>
         </Container>
     </AppBar>
     </ThemeProvider>
-    </div>
+    </>
   )
 }
 

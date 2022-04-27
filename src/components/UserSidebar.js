@@ -101,6 +101,31 @@ export default function UserSidebar() {
             >
                 {user.displayName || user.email}
             </span>
+
+            <div className="watchList"
+            style={{
+              flex:1,
+              width:'100%',
+              backgroundColor:'grey',
+              borderRadius:10,
+              padding:15,
+              paddingTop:10,
+              display:'flex',
+              flexDirection:'colum',
+              alignItems:'center',
+              gap:12,
+              overflowY:'scroll',
+            }}
+            >
+              <span 
+              style={{
+              fontSize: 15, 
+              textShadow: '0  0 5px black', 
+              }}>
+                Watchlist 
+              </span>
+
+            </div>
             <Button
                 onClick={logOut}
                 sx={{

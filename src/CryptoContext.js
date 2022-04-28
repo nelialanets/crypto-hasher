@@ -24,10 +24,27 @@ const [loading, setLoading] = useState(false);
 const [watchlist, setWatchlist] = useState([]);
 
 useEffect(()=>{
+  if (user){
+    const coinRef = doc(db, 'watchlist', user.uid);
+
+    var unsubscribe = onSnapshot(coinRef, coin=>{
+      if(coin.exists()){
+        setWatchlist(coin.data().coins)
+      }else{
+        console.log("no item in watchlist")
+      }
+
+    })
+    return()=>{
+      unsubscribe();
+    };
+  }
+}, [user])
+
+useEffect(()=>{
   onAuthStateChanged(auth, (user) =>{
     if (user) setUser(user);
     else setUser(null)
-    
     console.log(user)
 
   })

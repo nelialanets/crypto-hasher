@@ -8,7 +8,6 @@ import CoinInfo from '../components/CoinInfo';
 import "../styles/Sidebar.css"
 import { Typography, LinearProgress, Button } from '@mui/material';
 import parse from 'html-react-parser';
-import { async } from '@firebase/util';
 import { setDoc } from 'firebase/firestore';
 import {db} from '../firebase'
 import { doc } from 'firebase/firestore';

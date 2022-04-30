@@ -32,17 +32,13 @@ const Newsboard = () => {
         {
             news.map((article) => {
                 return<div>
+                <Grid container spacing={4}>
+                <Grid item xs={5}>
                  <Card 
                  sx={{ flexGrow: 1 }}
                  container spacing={{ xs: 2, md: 3 }} 
                  sx={{ maxWidth:400, margin:5}}
-                 
                  >
-                     <Grid 
-                     container spacing={{ xs: 2, md: 3 }} 
-                     columns={{ xs: 4, sm: 8, md: 12 }}
-
-                     >
                         <CardMedia 
                             component="img"
                             height="200"
@@ -68,10 +64,9 @@ const Newsboard = () => {
                             {article.description} </a>
                             </Typography>
                         </CardContent>
-                        </Grid>
-                        
                  </Card>
-                 
+                 </Grid>
+                 </Grid>
                 </div>
             })
         }

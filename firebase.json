@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "crypto-hasher-1",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

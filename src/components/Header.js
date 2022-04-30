@@ -42,7 +42,7 @@ const navigate = useNavigate();
         >
           <Toolbar>
             <Typography
-              onClick={() => navigate("/cryptopage")}
+              onClick={() => navigate("/")}
               variant="h6"
               
               sx={{
@@ -52,7 +52,7 @@ const navigate = useNavigate();
                 height: 2,
 
               }}
-            >Crypto-Hasherrrrrrrrrrrrrrrrrrd
+            >Crypto-Hasher
             </Typography>
 
               {user ? <UserSidebar /> : <AuthModal />}

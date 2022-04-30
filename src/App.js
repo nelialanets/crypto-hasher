@@ -15,7 +15,7 @@ function App() {
           <Header />
         <Routes>
           {/* <Route exact path="/reset" element={<Reset />} /> */}
-          <Route exact path="/cryptopage" element={<CryptoPage />} />
+          <Route exact path="/" element={<CryptoPage />} />
           <Route exact path="/coins/:id" element={<CoinsPage/>} />
         </Routes>
         </div>

@@ -7,7 +7,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
 import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
-import { fontWeight } from '@mui/system';
 
 
 const darkTheme = createTheme({

@@ -43,8 +43,6 @@ const fetchCoins = async () => {
 useEffect(() => {
     fetchCoins() 
 }, [currency])
-
-  console.log(coins)
  
     const handleSearch = () => {
         return coins.filter(

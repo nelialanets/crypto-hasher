@@ -12,7 +12,6 @@ const Newsboard = () => {
         const { data }  = await axios.get(NewsTopics());
 
         setNews(data.articles);
-        console.log(data.articles);
     };
 
     useEffect(() => {

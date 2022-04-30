@@ -97,7 +97,8 @@ useEffect(() => {
                                             fontFamily: "Montserrat",
                                             border:2,
                                             fontFamily:'large',
-                                             fontSize:20
+                                             fontSize:20,
+                                             
                                         }}
                                         key={head}
                                         align={head === "Coin" ? "" : "right"}

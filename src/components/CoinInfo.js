@@ -46,12 +46,12 @@ const { currency } = CryptoState();
     return (
             <div
                 style={{
-                    backgroundColor: "gold",
+                    backgroundColor: "#29D7B9",
                 }}
             >
             {!historicData | flag===false ? (
                 <CircularProgress
-                style={{ color: 'gold'}}
+                style={{ color: '#29D7B9'}}
                 size={250}
                 thickness={1}
                 />
@@ -76,7 +76,7 @@ const { currency } = CryptoState();
                             {
                                 data: historicData.map((coin) => coin[1]),
                                 label: `Price ( Past ${days} Days ) in ${currency}`,
-                                borderColor: "#EEBC1D",
+                                borderColor: "#29D7B9",
                             },
                         ],
                     }}

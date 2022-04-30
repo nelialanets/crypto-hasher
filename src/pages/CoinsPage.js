@@ -32,30 +32,56 @@ const CoinsPage = () => {
 
   const addToWatchlist= async()=>{
     const coinRef = doc(db, 'watchlist', user.uid);
-
+    
     try{
       await setDoc(coinRef,
-        {coins:watchlist?[...watchlist, coin.id]:[coin?.id],
-        });
+        {coins:watchlist?[...watchlist, coin.id]:[coin?.id] },
+        { merge: true }
+        );
+
         setAlert({
-          opet:true,
-          message:`${coin.name} Added to the Watchlist`,
+          open:true,
+          message:`${coin.name} Added to the Watchlist!`,
           type:'success'
         });
     }catch (error){
       setAlert({
-        opet:true,
+        open:true,
         message: error.message,
         type:'error'
       });
     }
   };
 
+  const removeFromWatchlist = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(
+        coinRef,
+        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { merge: true }
+      );
+
+      setAlert({
+        open: true,
+        message: `${coin.name} Removed from the Watchlist !`,
+        type: "success",
+      });
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+    }
+  };
+
+
+  // console.log()
+
   useEffect(() =>{
     fetchCoin();
   },[])
-
-  console.log(coin);
 
 if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
@@ -118,9 +144,10 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               style={{
                 width:'100%',
                height:40,
-               backgroundColor:'blue'
+               backgroundColor:'white',
+               color: 'black'
               }}
-              onClick={addToWatchlist}
+              onClick={inWatchList ? removeFromWatchlist : addToWatchlist}
               >
               {inWatchList ? "Remove from Watch":'Add to Watchlist'} 
             </Button>

@@ -46,7 +46,7 @@ const Signup = ({handleClose}) => {
                   uid: user.uid,
                   password,
                   authProvider: "local",
-                  email,
+                  email,    
                 });
 
                 console.log(res);

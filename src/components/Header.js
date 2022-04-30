@@ -7,7 +7,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
 import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
-import { fontWeight } from '@mui/system';
 
 
 const darkTheme = createTheme({
@@ -42,7 +41,7 @@ const navigate = useNavigate();
         >
           <Toolbar>
             <Typography
-              onClick={() => navigate("/cryptopage")}
+              onClick={() => navigate("/")}
               variant="h6"
               
               sx={{
@@ -52,7 +51,7 @@ const navigate = useNavigate();
                 height: 2,
 
               }}
-            >Crypto-Hasherrrrrrrrrrrrrrrrrrd
+            >Crypto-Hasher
             </Typography>
 
               {user ? <UserSidebar /> : <AuthModal />}

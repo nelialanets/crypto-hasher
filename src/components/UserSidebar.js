@@ -86,8 +86,26 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
-              <div className='container'>
-              <div className='profile'>
+              <div 
+                className='container'
+                style={{
+                  width: 350,
+                  padding: 25,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  fontFamily: "monospace",
+                }}>
+              <div 
+                className='profile'
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "20px",
+                  height: "92%",
+                }}>
               <Avatar 
                 sx={{
                     height: 100,
@@ -130,14 +148,14 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                 fontSize: 15, 
                 textShadow: '0  0 5px black', 
               }}>
-                Watchlist 
+                Coin Watchlist!
               </span>
               {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
-                        <div className='coin'>
+                        <div>
                           <span>{coin.name}</span>
-                              <span 
+                              {/* <span 
                                 style={{ 
                                         display: "flex", 
                                         gap: 8, 
@@ -149,7 +167,7 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                               fontSize="16"
                               onClick={() => removeFromWatchlist(coin)}
                                 />
-                                </span>
+                                </span> */}
                             </div>
                         );
                     else return <></>;

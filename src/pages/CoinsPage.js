@@ -30,7 +30,6 @@ const CoinsPage = () => {
   }
 
   const inWatchList = watchlist.includes(coin?.id);
-  console.log(inWatchList)
 
   const addToWatchlist= async()=>{
     const coinRef = doc(db, "watchlist", user.uid);

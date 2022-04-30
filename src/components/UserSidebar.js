@@ -18,23 +18,24 @@ export default function UserSidebar() {
     right: false,
   });
 
-    const {user, setAlert, watchlist, coins, symbol} = CryptoState();
+const {user, setAlert, watchlist, coins, symbol} = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
+    
+    ) {
       return;
     }
 
     setState({ ...state, [anchor]: open });
   };
 
-  
   const logOut = () => {
     signOut(auth);
     setAlert({
       open: true,
       type: "success",
-      message: "Logout Successfull !",
+      message: "Logout Successfull!",
     });
 
     toggleDrawer();
@@ -76,39 +77,18 @@ export default function UserSidebar() {
                     marginLeft: 15,
                     cursor: "pointer",
                     backgroundColor: "#29D7B9",
-                    }}
-                    src={user.photoURL}
-                    alt={user.displayName || user.email}
-            />
-            <span
-                style={{
-                    width: "100%",
-                    fontSize: 25,
-                    textAlign: "center",
-                    fontWeight: "bolder",
-                    wordWrap: "break-word",
                 }}
-            >
-                {user.displayName || user.email}
-            </span>
+                src={user.photoURL}
+                alt={user.displayName || user.email}
+            />
           <Drawer
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            styles={{
-                width: 3500,
-                // padding: 25,
-                // height: 100,
-                // display: 'flex',
-                // flexDirection: 'column',
-                // fontFamily: "monospace",
-            }}
-            >
+          >
               <div className='container'>
-                 {/* - - - - -  C R Y P T O ______ H A S H E R - - - - -  */}
-              </div>
+              <div className='profile'>
               <Avatar 
-                onClick={toggleDrawer(anchor, true)}
                 sx={{
                     height: 100,
                     width: 100,
@@ -119,7 +99,7 @@ export default function UserSidebar() {
                     }}
                     src={user.photoURL}
                     alt={user.displayName || user.email}
-            />
+                />
             <span
                 style={{
                     width: "100%",
@@ -131,7 +111,6 @@ export default function UserSidebar() {
             >
                 {user.displayName || user.email}
             </span>
-
             <div className="watchList"
             style={{
               flex:1,
@@ -146,20 +125,23 @@ export default function UserSidebar() {
               gap:12,
               overflowY:'scroll',
             }}>
-            </div>
               <span 
               style={{
-              fontSize: 15, 
-              textShadow: '0  0 5px black', 
+                fontSize: 15, 
+                textShadow: '0  0 5px black', 
               }}>
                 Watchlist 
               </span>
               {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
-                        <div>
+                        <div className='coin'>
                           <span>{coin.name}</span>
-                          <span style={{ display: "flex", gap: 8 }}>
+                              <span 
+                                style={{ 
+                                        display: "flex", 
+                                        gap: 8, 
+                                        }}>
                             {symbol}{" "}
                             {numberWithCommas(coin.current_price.toFixed(2))}
                             <AiFillDelete
@@ -167,11 +149,13 @@ export default function UserSidebar() {
                               fontSize="16"
                               onClick={() => removeFromWatchlist(coin)}
                                 />
-                            </span>
-                        </div>
-              );
-              else return <></>;
-            })}
+                                </span>
+                            </div>
+                        );
+                    else return <></>;
+                    })}
+                </div>
+            </div>
             <Button
                 onClick={logOut}
                 sx={{
@@ -185,6 +169,7 @@ export default function UserSidebar() {
                     }}>
                 Log Out
             </Button>
+            </div>
           </Drawer>
         </React.Fragment>
       ))}

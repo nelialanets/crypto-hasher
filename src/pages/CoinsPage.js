@@ -30,13 +30,15 @@ const CoinsPage = () => {
   }
 
   const inWatchList = watchlist.includes(coin?.id);
+  console.log(inWatchList)
 
   const addToWatchlist= async()=>{
-    const coinRef = doc(db, 'watchlist', user.uid);
+    const coinRef = doc(db, "watchlist", user.uid);
     
     try{
-      await setDoc(coinRef,
-        {coins:watchlist?[...watchlist, coin.id]:[coin?.id] },
+      await setDoc(
+        coinRef,
+        {coins: watchlist ? [...watchlist, coin.id] : [coin?.id] },
         { merge: true }
         );
 
@@ -145,7 +147,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               style={{
                 width:'100%',
                height:40,
-               backgroundColor:'white',
+               backgroundColor: inWatchList ? '#ff0000' : 'green',
                color: 'black'
               }}
               onClick={inWatchList ? removeFromWatchlist : addToWatchlist}

@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
 import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
+import { flexbox } from '@mui/system';
 
 
 const darkTheme = createTheme({
@@ -25,35 +26,36 @@ const navigate = useNavigate();
       <ThemeProvider theme={darkTheme}>
       <AppBar  position='static'
       sx={{
-        backgroundColor:"#424353",
+        backgroundColor:"black",
         direction:'flex',
-        color:"#29D7B9",
         fontWeight:'300',
+        marginBottom:15,
       }
-
       } >
         <Container
           sx={{
             height: 100,
             display: 'flex',
-
           }}
         >
-          <Toolbar>
+          <Toolbar
+          st={{
+            display: 'flex',
+            width:20
+          }}>
             <Typography
               onClick={() => navigate("/")}
-              variant="h6"
-              
               sx={{
-                m:-11,
-                display: 'flex',
-                marginLeft: -50,
-                height: 2,
+              display:'flex',
+               marginLeft:-50,
+               width:250,
+               fontFamily:"large",
+               fontSize:25,
+               color:'#29D7B9',
 
               }}
-            >Crypto-Hasher
+            >CRYPTO-HASHER
             </Typography>
-
               {user ? <UserSidebar /> : <AuthModal />}
 
           </Toolbar>

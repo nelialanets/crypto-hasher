@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { SingleCoin } from '../config/api';
 import {CryptoState} from "../CryptoContext"
 import CoinInfo from '../components/CoinInfo';
+import Banner from '../components/Banner/Banner';
 import "../styles/Sidebar.css"
 import { Typography, LinearProgress, Button } from '@mui/material';
 import parse from 'html-react-parser';

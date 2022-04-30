@@ -95,7 +95,10 @@ import {
         variant='contained'
         size='large'
         style={{
-            backgroundColor: '#29D7B9'
+            backgroundColor: '#29D7B9',
+            display: 'flex',
+            m:5,
+            
         }}
         onClick={handleSubmit}
     >Login</Button>

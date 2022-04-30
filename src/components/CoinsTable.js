@@ -53,42 +53,51 @@ useEffect(() => {
     };
 
     return(
-        <div>
-            <Typography
-                variant='h4'
-                sx={{ m: 10,
-                    display:'flex',
-                     fontFamily: "Montserrat",
-                     alignItems:'center',
-                     justifyContent:'center',
-                      color:'white'}}
-            >
-                Cryptocurrency Prices by Market Cap
-            </Typography>
+        <div className='coinTablemain'>
             <TextField
                 label="Search For a Crypto Currency.." 
-                variant='outlined'
-                    style={{ marginBottom: 20, with: "100%"}}
-
+                // variant='outlined'
+                id="fullWidth" 
+                
+                sx={{
+                    width: 700,
+                    maxWidth: '100%',
+                    margin: 5,
+                    marginLeft:120,
+                    // border:1,
+                    // borderBlockColor:'#29D7B9'
+                }}
                     onChange={(e)=>setSearch(e.target.value)}
                 />
+
                 <TableContainer  component={Paper}>
                    {loading ? (
                            <LinearProgress style={{ backgroundColor: "green"}} />
                        ) : (
-                        <Table aria-label="simple table">
+                        <Table aria-label="simple table"
+                        sx={{
+                            border:2,
+                           borderBlockColor:'#29D7B9'
+                        }}
+
+                        >
                             <TableHead sx={{
                                 color:'white',
-                                backgroundColor:'black', opacity: 0.6
+                                backgroundColor:'black', 
+                                border:2,
+                                borderColor:'#29D7B9',
                             }}>
-                                <TableRow 
+                                <TableRow
                                 >
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                                      <TableCell
                                         style={{
                                             color: "white",
-                                            fontWeight: "700",
+                                            fontWeight: "500",
                                             fontFamily: "Montserrat",
+                                            border:2,
+                                            fontFamily:'large',
+                                             fontSize:20
                                         }}
                                         key={head}
                                         align={head === "Coin" ? "" : "right"}
@@ -100,7 +109,10 @@ useEffect(() => {
                             </TableHead>
 
                         <TableBody className='row'
-                        sx={{color:'white'}}>
+                        sx={{color:'black',
+                        backgroundColor:"#424353", 
+                        border:1,
+                        }}>
                             {handleSearch()
                             .slice((page - 1) * 10, (page - 1) * 10 + 10)
                             .map((row) => {
@@ -109,7 +121,9 @@ useEffect(() => {
                                 <TableRow className='row'
                                     onClick={() => navigate(`/coins/${row.id}`)}
                                     key={row.name}
-                                    style={{backgroundColor:"#424353", 
+                                    style={{
+                                        backgroundColor:"#424353", 
+                                        border:1,
                                     
                                     }}>
 
@@ -119,6 +133,11 @@ useEffect(() => {
                                         style={{
                                             display: "flex",
                                             gap: 15,
+                                            borderColor:'#29D7B9',
+                                            backgroundColor:'black',
+                                            fontFamily: "Montserrat",
+                                            fontFamily:'large',
+                                            fontSize:20,
                                             
                                         }}
                                             >
@@ -132,6 +151,8 @@ useEffect(() => {
                                                 style={{
                                                     display: "flex",
                                                     flexDirection: "column",
+                                                    borderColor:'#29D7B9',
+                                                    
                                                     
                                                 }}
                                             >
@@ -139,14 +160,15 @@ useEffect(() => {
                                                     style={{
                                                         textTransform: "uppercase",
                                                         fontSize: 22,
-                                                        color:'white'
                                                     }}
                                                 >
                                                     {row.symbol}
                                                 </span>
                                                 <span
                                                     style={{
-                                                        color: "darkgrey",
+                                                        // color: "darkgrey",
+                                                        // borderColor:'#29D7B9',
+                                                        
                                                     }}
                                                 >
                                                     {row.name}
@@ -154,15 +176,30 @@ useEffect(() => {
                                             </div>
                                     </TableCell>
                                     <TableCell 
-                                        align="right">
+                                        align="right" 
+                                        
+                                        sx={{
+                                            borderColor:'#29D7B9',
+                                            color:'white',
+                                            backgroundColor:'black',
+                                            fontFamily: "Montserrat",
+                                            fontFamily:'large',
+                                             fontSize:20
+                                        }}>
                                         ${" "}
                                         {numberWithCommas(row.current_price.toFixed(2))}  
+                                        
                                     </TableCell>
                                     <TableCell
                                         align="right"
                                         style={{
                                             color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                                             fontWeight: 500,
+                                            borderColor:'#29D7B9',
+                                            backgroundColor:'black',
+                                            fontFamily: "Montserrat",
+                                            fontFamily:'large',
+                                            fontSize:20
 
                                         }}
                                         >
@@ -170,7 +207,16 @@ useEffect(() => {
                                         {row.price_change_percentage_24h.toFixed(2)}%
                                         </TableCell>
                                         <TableCell 
-                                            align="right">
+                                            align="right"
+                                            sx={{
+                                                borderColor:'#29D7B9',
+                                                color:'white',
+                                                backgroundColor:'black',
+                                                fontFamily: "Montserrat",
+                                                fontFamily:'large',
+                                                 fontSize:20
+                                            }}
+                                            >
                                             ${" "}
                                             {numberWithCommas(row.market_cap.toString().slice(0, -6)
                                         )}
@@ -190,6 +236,9 @@ useEffect(() => {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
+                backgroundColor:'#29D7B9',
+                 marginBottom:35,
+                 marginTop:10
                 }}
                 onChange={(_, value) => {
                 setPage(value);

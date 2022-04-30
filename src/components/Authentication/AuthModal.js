@@ -35,13 +35,16 @@ export default function BasicModal() {
     <div>
       <Button 
         onClick={handleOpen}
-        variant="contained"
+        // variant="contained"
         sx={{
             display: 'flex',
-            width: 85,
-            height: 40,
-            marginLeft: 105,
-            backgroundColor: "#EEBC1D",
+            width: 100,
+            height: 50,
+            marginLeft: 200,
+            border: '#29D7B9',
+            color:'#29D7B9',
+            fontFamily:'large',
+            fontSize:25
 
         }}
         >Login</Button>

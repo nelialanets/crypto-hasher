@@ -41,18 +41,18 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
     toggleDrawer();
   };
 
-  const removeFromWatchlist = async (coin) => {
+  const removeFromWatchlist = async(coin) => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wish) => wish !== coin?.id) },
+        { coins: watchlist.filter((wish) => wish !== coins?.id) },
         { merge: true }
       );
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist!`,
+        message: `${coin.id} Removed from the Watchlist!`,
         type: "success",
       });
 
@@ -64,7 +64,7 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
       });
     }
   };
-
+  // console.log(watchlist)
 
   return (
     <div>
@@ -151,8 +151,26 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
               }}>
                 Coin Watchlist!
               </span>
+              {watchlist.map((coin) => {
+                    if (watchlist.includes(coin))
+                      return (
+                        <div>
+                          <span>{coin}</span>
+                          <span>
+                            {symbol}{" "}
+                            {numberWithCommas(coins)}
+                            <AiFillDelete
+                              style={{ cursor: "pointer" }}
+                              fontSize="16"
+                              onClick={() => removeFromWatchlist(" ")}
+                            />
+                          </span>
+                        </div>
+                      );
+                    else return <></>;
+                  })}
+                </div>
               </div>
-            </div>
             <Button
                 onClick={logOut}
                 sx={{

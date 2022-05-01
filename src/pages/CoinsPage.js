@@ -66,7 +66,7 @@ const CoinsPage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist !`,
+        message: `${coin.name} Removed from the Watchlist!`,
         type: "success",
       });
     } catch (error) {

@@ -44,11 +44,12 @@ const { currency } = CryptoState();
     },[days]);
 
     return (
-            <div
-                style={{
-                    backgroundColor: "#29D7B9",
-                }}
-            >
+            <div className='conteiner'
+            style={{
+                width:'100%',
+                justifyContent:'center'
+
+            }} >
             {!historicData | flag===false ? (
                 <CircularProgress
                 style={{ color: '#29D7B9'}}
@@ -58,9 +59,9 @@ const { currency } = CryptoState();
             ) : (
                 <>
                 <Line
-
                     style={{
                         backgroundColor: "black",
+                        
 
                     }}
                     data={{
@@ -96,10 +97,14 @@ const { currency } = CryptoState();
                         }}>
                         {chartDays.map((day) => (
                             <SelectButton
+                            
+                            
                                 key={day.value}
                                 onClick={()=> setDays(day.value)}
                                 selected={day.value === days}
-                            >{day.label}</SelectButton>
+                            >{day.label
+                            
+                            }</SelectButton>
                             ))}
                         </div>
                     </>

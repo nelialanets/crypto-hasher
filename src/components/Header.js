@@ -7,7 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CryptoState } from '../CryptoContext';
 import UserSidebar from './UserSidebar';
 import AuthModal from './Authentication/AuthModal';
-import { flexbox } from '@mui/system';
+import { flexbox, width } from '@mui/system';
 
 
 const darkTheme = createTheme({
@@ -28,29 +28,29 @@ const navigate = useNavigate();
       sx={{
         backgroundColor:"black",
         direction:'flex',
-        fontWeight:'300',
         marginBottom:15,
+        width:'100%'
       }
       } >
         <Container
           sx={{
             height: 100,
             display: 'flex',
+            marginLeft:'6%',
+            width:"100%"
           }}
         >
           <Toolbar
           st={{
             display: 'flex',
-            width:20
           }}>
             <Typography
               onClick={() => navigate("/")}
               sx={{
               display:'flex',
-               marginLeft:-50,
-               width:250,
+               width:"15rem",
                fontFamily:"large",
-               fontSize:25,
+               fontSize:'1.5rem',
                color:'#29D7B9',
 
               }}

@@ -44,7 +44,8 @@ export default function BasicModal() {
             border: '#29D7B9',
             color:'#29D7B9',
             fontFamily:'large',
-            fontSize:25
+            fontSize:'1.5rem'
+
 
         }}
         >Login</Button>

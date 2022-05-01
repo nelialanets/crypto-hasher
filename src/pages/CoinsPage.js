@@ -12,6 +12,7 @@ import parse from 'html-react-parser';
 import { setDoc } from 'firebase/firestore';
 import {db} from '../firebase'
 import { doc } from 'firebase/firestore';
+import { borderRight } from '@mui/system';
 
   export function numberWithCommas(x){
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -88,24 +89,65 @@ const CoinsPage = () => {
 if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
-    <div>
-      <div className='sidebar'>
+    <div className='container'
+    style={{
+      width:'100%',
+      display:'flex',
+      flexDirection:'column',
+  }}
+  >
+      <div className='sidebar'
+      sx={{
+        width:'100%',
+        display:'flex',
+        flexDirection:'column',
+        marginTop:25,
+        borderRight:1,
+        marginRight:'50rem',
+    }}
+     >
         <img
         src={coin?.image.large}
         alt={coin?.name}
         height="200"
-        style={{ marginBottom: 20}}
+        style={{
+           marginBottom: 20,
+           display:'flex',
+           marginRight:'10rem',
+            
+        }}
         />
-        <Typography variant="h3" className='heading'>
+        <Typography variant="h3" className='heading'
+        style={{
+          fontWeight:'bold',
+           fontFamily:'Montserrat',
+           marginBottom:'1%',
+           fontSize:"400%",
+           marginRight:'10rem',
+        }}
+        >
           {coin?.name}
         </Typography>
-
-        <Typography variant="subtitle1" className='description'>
+        <Typography variant="subtitle1" className='description'
+      sx={{
+        width:'60rem',
+        fontFamily:'Montserrat',
+        paddingTop:0,
+        fontSize:"200%",
+        marginRight:'0rem',
+        
+      }}
+        >
+          <hr />
           {parse(coin?.description.en.split(". ")[0])}.
         </Typography>
-
-        <div>
-          <span style={{display: "flex"}}>
+        <div style={{marginBottom:10}} >
+          <span style={{display: "flex",
+          width:'1rem',
+          marginRight:'0rem',
+          marginBottom:5,
+        
+        }}>
             <Typography variant='h5' className='heading'>
               Rank:
             </Typography>
@@ -140,6 +182,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               )}M
             </Typography>
             </span>
+            
             {user && (
               <Button
               variant='outlined'
@@ -157,9 +200,8 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
         </div>
       </div>
       <div>
-        {/* {chart} */}
-        <CoinInfo coin={coin} />
       </div>
+      <CoinInfo coin={coin} />
     </div>
   )
 }

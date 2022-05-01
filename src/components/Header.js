@@ -36,7 +36,6 @@ const navigate = useNavigate();
           sx={{
             height: 100,
             display: 'flex',
-            marginLeft:'6%',
             width:"100%"
           }}
         >
@@ -48,9 +47,9 @@ const navigate = useNavigate();
               onClick={() => navigate("/")}
               sx={{
               display:'flex',
-               width:"15rem",
+               width:"-1rem",
                fontFamily:"large",
-               fontSize:'1.5rem',
+               fontSize:'1rem',
                color:'#29D7B9',
 
               }}

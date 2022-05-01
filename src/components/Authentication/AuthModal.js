@@ -40,11 +40,11 @@ export default function BasicModal() {
             display: 'flex',
             width: 100,
             height: 50,
-            marginLeft: 200,
+            marginLeft: 100,
             border: '#29D7B9',
             color:'#29D7B9',
             fontFamily:'large',
-            fontSize:'1.5rem'
+            fontSize:'1rem'
 
 
         }}

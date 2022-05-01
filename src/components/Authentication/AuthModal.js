@@ -38,9 +38,9 @@ export default function BasicModal() {
         // variant="contained"
         sx={{
             display: 'flex',
-            width: "100%",
+            width: "50",
             height: 50,
-            marginLeft: 150,
+            marginLeft: 140,
             border: '#29D7B9',
             color:'#29D7B9',
             fontFamily:'large',

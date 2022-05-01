@@ -102,7 +102,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           flexDirection:'column',
           marginTop:25,
           borderRight:1,
-          marginRight:'50rem',
+          marginRight:'80rem',
         }}
       >
         <img
@@ -112,7 +112,8 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
         style={{
           marginBottom: 20,
           display:'flex',
-          marginRight:'10rem',
+          marginRight:'80rem',
+
         }}/>
         <Typography 
           variant="h3" 
@@ -122,7 +123,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
              fontFamily:'Montserrat',
              marginBottom:'1%',
              fontSize:"400%",
-             marginRight:'10rem',
+             marginRight:'80rem',
           }}
           >
           {coin?.name}
@@ -132,11 +133,11 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           variant="subtitle1" 
           className='description'
           sx={{
-            width:'60rem',
+            width:'40rem',
             fontFamily:'Montserrat',
             paddingTop:0,
-            fontSize:"200%",
-            marginRight:'0rem',
+            fontSize:"100%",
+            marginRight:'55rem',
           }}>
           <hr></hr>
           {parse(coin?.description.en.split(". ")[0])}.
@@ -147,10 +148,16 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           }} >
         <span style={{display: "flex",
           width:'5rem',
-          marginRight:'5rem',
-          marginBottom: "1%",
+          marginRight:'90rem',
+          marginTop: "1%",
         }}>
-            <Typography variant='h5' className='heading'>
+            <Typography 
+              variant='h5' 
+              className='heading'
+              sx={{
+                fontSize: '100',
+              }}
+              >
               Rank:
             </Typography>
             &nbsp; &nbsp;
@@ -189,8 +196,10 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               <Button
               variant='outlined'
               style={{
-                width:'100%',
+                width:'20%',
                height:40,
+               padding:'5px',
+               margin:'20px',
                backgroundColor: inWatchList ? '#ff0000' : 'green',
                color: 'black'
               }}

@@ -46,7 +46,13 @@ const { currency } = CryptoState();
     return (
             <div
                 style={{
-                    backgroundColor: "#29D7B9",
+                    // display: 'flex',
+                    // flexDirection: 'f',
+                    width:'50%',
+                    justifyContent:'center',
+                    marginLeft:'47rem',
+                    padding:'1rem',
+                    marginBottom:'50rem'
                 }}
             >
             {!historicData | flag===false ? (

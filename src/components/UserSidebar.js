@@ -52,9 +52,10 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist !`,
+        message: `${coin.name} Removed from the Watchlist!`,
         type: "success",
       });
+
     } catch (error) {
       setAlert({
         open: true,
@@ -74,7 +75,7 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                 sx={{
                     height: 38,
                     width: 38,
-                    marginLeft: 15,
+                    marginLeft: '60rem',
                     cursor: "pointer",
                     backgroundColor: "#29D7B9",
                 }}
@@ -150,41 +151,19 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
               }}>
                 Coin Watchlist!
               </span>
-              {coins.map((coin) => {
-                    if (watchlist.includes(coin.id))
-                      return (
-                        <div>
-                          <span>{coin.name}</span>
-                              {/* <span 
-                                style={{ 
-                                        display: "flex", 
-                                        gap: 8, 
-                                        }}>
-                            {symbol}{" "}
-                            {numberWithCommas(coin.current_price.toFixed(2))}
-                            <AiFillDelete
-                              style={{ cursor: "pointer" }}
-                              fontSize="16"
-                              onClick={() => removeFromWatchlist(coin)}
-                                />
-                                </span> */}
-                            </div>
-                        );
-                    else return <></>;
-                    })}
-                </div>
+              </div>
             </div>
             <Button
                 onClick={logOut}
                 sx={{
-                    height: 50,
-                    padding: 5,
-                    margin: 10,
-                    backgroundColor: '#29D7B9',
-                    color: 'white',
-                    fontSize: 'larger',
-                    fontWeight: 'bold'
-                    }}>
+                  height: 50,
+                  padding: '5px',
+                  margin: '10px',
+                  backgroundColor: '#29D7B9',
+                  color: 'white',
+                  fontSize: 'midium',
+                  fontWeight: 'bold'
+                  }}>
                 Log Out
             </Button>
             </div>

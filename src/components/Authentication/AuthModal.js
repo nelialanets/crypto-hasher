@@ -38,14 +38,13 @@ export default function BasicModal() {
         // variant="contained"
         sx={{
             display: 'flex',
-            width: 100,
+            width: "100%",
             height: 50,
-            marginLeft: 200,
+            marginLeft: 150,
             border: '#29D7B9',
             color:'#29D7B9',
             fontFamily:'large',
-            fontSize:25
-
+            fontSize:"1.5rem",
         }}
         >Login</Button>
       <Modal

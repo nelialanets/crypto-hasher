@@ -24,35 +24,35 @@ const navigate = useNavigate();
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-      <AppBar  position='static'
+      <AppBar 
+      position='static'
       sx={{
         backgroundColor:"black",
         direction:'flex',
         fontWeight:'300',
         marginBottom:15,
-      }
-      } >
+        width: "100%",
+      }}>
         <Container
           sx={{
             height: 100,
             display: 'flex',
-          }}
-        >
+            marginLeft: "6%",
+            width: "100%",
+          }}>
           <Toolbar
           st={{
             display: 'flex',
-            width:20
+            // width:20
           }}>
             <Typography
               onClick={() => navigate("/")}
               sx={{
-              display:'flex',
-               marginLeft:-50,
-               width:250,
+               display:'flex',
+               width: "15rem",
                fontFamily:"large",
-               fontSize:25,
+               fontSize: "1.5rem",
                color:'#29D7B9',
-
               }}
             >CRYPTO-HASHER
             </Typography>
@@ -60,6 +60,7 @@ const navigate = useNavigate();
 
           </Toolbar>
         </Container>
+
     </AppBar>
     </ThemeProvider>
     </>

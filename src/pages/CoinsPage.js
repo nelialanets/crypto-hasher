@@ -88,24 +88,68 @@ const CoinsPage = () => {
 if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
-    <div>
-      <div className='sidebar'>
+    <div className='container'
+    style={{
+      width:'100%',
+      display:'flex',
+      flexDirection:'column',
+    }}
+    >
+      <div className='sidebar'
+        sx={{
+          width:'100%',
+          display:'flex',
+          flexDirection:'column',
+          marginTop:25,
+          borderRight:1,
+          marginRight:'50rem',
+        }}
+      >
         <img
         src={coin?.image.large}
         alt={coin?.name}
         height="200"
-        style={{ marginBottom: 20}}
-        />
-        <Typography variant="h3" className='heading'>
+        style={{
+          marginBottom: 20,
+          display:'flex',
+          marginRight:'10rem',
+        }}/>
+        <Typography 
+          variant="h3" 
+          className='heading'
+          style={{
+            fontWeight:'bold',
+             fontFamily:'Montserrat',
+             marginBottom:'1%',
+             fontSize:"400%",
+             marginRight:'10rem',
+          }}
+          >
           {coin?.name}
         </Typography>
 
-        <Typography variant="subtitle1" className='description'>
+        <Typography 
+          variant="subtitle1" 
+          className='description'
+          sx={{
+            width:'60rem',
+            fontFamily:'Montserrat',
+            paddingTop:0,
+            fontSize:"200%",
+            marginRight:'0rem',
+          }}>
+          <hr></hr>
           {parse(coin?.description.en.split(". ")[0])}.
         </Typography>
 
-        <div>
-          <span style={{display: "flex"}}>
+        <div style={{
+          marginBottom:"5%"
+          }} >
+        <span style={{display: "flex",
+          width:'5rem',
+          marginRight:'5rem',
+          marginBottom: "1%",
+        }}>
             <Typography variant='h5' className='heading'>
               Rank:
             </Typography>
@@ -126,6 +170,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               )}
             </Typography>
             </span>
+
             <span style={{display: "flex"}}>
             <Typography variant='h5' className='heading'>
               Market Cap:

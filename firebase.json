@@ -1,6 +1,10 @@
 {
   "hosting": {
     "public": "build",
+<<<<<<< HEAD
+=======
+    "site": "crypto-hasher-1",
+>>>>>>> 54b3617ff7ec71b77415847fb03d7d9c5e2397ea
     "ignore": [
       "firebase.json",
       "**/.*",

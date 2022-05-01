@@ -17,7 +17,7 @@ import Grid from '@mui/material/Grid';
 const Newsboard = () => {
     const [news, setNews] = useState([]);
 
-    const fetchNews =async () => {
+    const fetchNews = async () => {
         const { data }  = await axios.get(NewsTopics());
 
         setNews(data.articles);
@@ -35,10 +35,12 @@ const Newsboard = () => {
                 <Grid container spacing={4}>
                 <Grid item xs={5}>
                  <Card 
-                 sx={{ flexGrow: 1 }}
                  container spacing={{ xs: 2, md: 3 }} 
-                 sx={{ maxWidth:400, margin:5}}
-                 >
+                 sx={{ 
+                     maxWidth:400, 
+                     margin:5,
+                     flexGrow: 1,
+                    }}>
                         <CardMedia 
                             component="img"
                             height="200"

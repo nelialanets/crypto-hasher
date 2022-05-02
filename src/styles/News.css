@@ -2,8 +2,7 @@
     width: 100%;
     display: grid;
     padding: 1rem;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-row: repeat(auto-fit, minmax(30px, 1fr));
     grid-gap: 1rem;
     background-image: linear-gradient(to right, hsl(175, 43%, 17%), #000000)
 }

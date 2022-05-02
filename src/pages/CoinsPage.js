@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom'
 import { SingleCoin } from '../config/api';
 import {CryptoState} from "../CryptoContext"
 import CoinInfo from '../components/CoinInfo';
-import Banner from '../components/Banner/Banner';
 import "../styles/Sidebar.css"
 import { Typography, LinearProgress, Button } from '@mui/material';
 import parse from 'html-react-parser';
@@ -88,7 +87,7 @@ const CoinsPage = () => {
 if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
 
   return (
-    <div className='container'
+    <div className='container-coinpage'
     style={{
       width:'100%',
       display:'flex',
@@ -97,12 +96,11 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
     >
       <div className='sidebar'
         sx={{
-          width:'100%',
+          width:'50%',
           display:'flex',
           flexDirection:'column',
           marginTop:25,
           borderRight:1,
-          marginRight:'80rem',
         }}
       >
         <img
@@ -119,11 +117,12 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           variant="h3" 
           className='heading'
           style={{
+            display:'flex',
+            flexDirection:'column',
             fontWeight:'bold',
              fontFamily:'Montserrat',
              marginBottom:'1%',
              fontSize:"400%",
-             marginRight:'80rem',
           }}
           >
           {coin?.name}
@@ -133,11 +132,12 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           variant="subtitle1" 
           className='description'
           sx={{
-            width:'40rem',
+            display:'flex',
+            width:'30rem',
             fontFamily:'Montserrat',
             paddingTop:0,
             fontSize:"100%",
-            marginRight:'55rem',
+            marginRight:'20rem',
           }}>
           <hr></hr>
           {parse(coin?.description.en.split(". ")[0])}.

@@ -29,7 +29,7 @@ const navigate = useNavigate();
       sx={{
         backgroundColor:"black",
         direction:'flex',
-        marginBottom: '1%',
+        marginBottom: '5%',
         width: "100%",
       }}>
         <Container

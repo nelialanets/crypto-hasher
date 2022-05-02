@@ -44,7 +44,7 @@ const { currency } = CryptoState();
     },[days]);
 
     return (
-            <div
+            <div className='chart'
                 style={{
                     // display: 'flex',
                     // flexDirection: 'f',
@@ -52,7 +52,6 @@ const { currency } = CryptoState();
                     justifyContent:'center',
                     marginLeft:'47rem',
                     padding:'1rem',
-                    marginBottom:'50rem'
                 }}
             >
             {!historicData | flag===false ? (

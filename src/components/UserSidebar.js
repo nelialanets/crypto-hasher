@@ -160,23 +160,12 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
               {watchlist.map((coin) => {
                     if (watchlist.includes(coin))
                       return (
-                        <div style={{
-                          padding: 15,
-                          borderRadius: 5,
-                          color: "black",
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          backgroundColor: "#29D7B9",
-                          boxShadow: "0 0 3px black",
-                        }} >
-                          <span>{coin}</span>
+                        <div className='listBar'>
+                          <span className='list'
+                          
+                          >{coin}</span>
                           <span 
-                            style={{
-                              display: "flex",
-                              gap: 8,
-                          }}>
+                            >
                             {symbol}{" "}
                             {numberWithCommas(coins)}
                             <AiFillDelete

@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router,  Route, Routes } from "react-router-dom";
-import Reset from "./components/Reset";
 import CryptoPage from "./pages/CryptoPage";
 import Header from "./components/Header";
 import CoinsPage from "./pages/CoinsPage";

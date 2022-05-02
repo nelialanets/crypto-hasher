@@ -17,7 +17,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CoinList } from '../config/api';
 import { CryptoState } from '../CryptoContext';
-import '../styles/CoinTable.css'
+import { teal } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -52,20 +53,32 @@ useEffect(() => {
         );
     };
 
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: teal[500],
+          },
+          secondary: {
+            main: '#1de9b6',
+          },
+        },
+    });
+
+    const color = teal[500];
     return(
         <div className='coinTablemain'>
             <TextField
-                label="Search For a Crypto Currency.." 
-                // variant='outlined'
-                id="fullWidth" 
-                
+            label="Search For a Crypto Currency.." 
+              color='primary'
+              id="outlined-basic" 
+              variant="outlined"
+              focused
                 sx={{
-                    width: 700,
+                    width:'40rem',
                     maxWidth: '100%',
-                    margin: 5,
-                    marginLeft:120,
-                    // border:1,
-                    // borderBlockColor:'#29D7B9'
+                    margin: 10,
+                    marginLeft:"35%",
+                    marginTop:'10%',  
                 }}
                     onChange={(e)=>setSearch(e.target.value)}
                 />

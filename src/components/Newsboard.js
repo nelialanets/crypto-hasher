@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { fontFamily } from '@mui/system';
 import Grid from '@mui/material/Grid';
+import'../styles/News.css'
 
  
 
@@ -31,19 +32,12 @@ const Newsboard = () => {
 
     return (
     
-        <>
+        <div className='main-container'>
         {
             news.map((data) => {
-                return<div>
-                <Grid container spacing={4}>
-                <Grid item xs={5}>
-                 <Card 
-                 container spacing={{ xs: 2, md: 3 }} 
-                 sx={{ 
-                     maxWidth:400, 
-                     margin:5,
-                     flexGrow: 1,
-                    }}>
+                return<div  >
+                 <Card  className='card'>
+                
                         <CardMedia 
                             component="img"
                             height="200"
@@ -70,12 +64,11 @@ const Newsboard = () => {
                             </Typography>
                         </CardContent>
                  </Card>
-                 </Grid>
-                 </Grid>
+                 
                 </div>
             })
         }
-        </>
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
 import { CryptoState } from '../CryptoContext';
 import { Avatar } from '@mui/material';
@@ -14,11 +15,13 @@ export function numberWithCommas(x) {
 }
 
 export default function UserSidebar() {
+  const [coin, setCoin] = useState();
   const [state, setState] = React.useState({
     right: false,
   });
 
 const {user, setAlert, watchlist, coins, symbol} = CryptoState();
+
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
@@ -41,18 +44,18 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
     toggleDrawer();
   };
 
-  const removeFromWatchlist = async(coin) => {
+  const removeFromWatchlist = async (coin) => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((wish) => wish !== coins?.id) },
+        { coins: watchlist.filter((watch) => watch !== coin?.id) },
         { merge: true }
       );
 
       setAlert({
         open: true,
-        message: `${coin.id} Removed from the Watchlist!`,
+        message: `${coin} Removed from the Watchlist!`,
         type: "success",
       });
 
@@ -149,22 +152,36 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                 fontSize: 15, 
                 textShadow: '0  0 5px black', 
               }}>
-                Coin Watchlist!
               </span>
               {watchlist.map((coin) => {
                     if (watchlist.includes(coin))
                       return (
-                        <div>
+                        <div style={{
+                          padding: 10,
+                          borderRadius: 5,
+                          color: "black",
+                          width: "100%",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          backgroundColor: "#EEBC1D",
+                          boxShadow: "0 0 3px black",
+                        }} >
                           <span>{coin}</span>
-                          <span>
+                          <span 
+                            style={{
+                              display: "flex",
+                              gap: 8,
+                          }}>
                             {symbol}{" "}
                             {numberWithCommas(coins)}
                             <AiFillDelete
                               style={{ cursor: "pointer" }}
                               fontSize="16"
-                              onClick={() => removeFromWatchlist(" ")}
+                              onClick={() => removeFromWatchlist(coin)}
                             />
                           </span>
+
                         </div>
                       );
                     else return <></>;

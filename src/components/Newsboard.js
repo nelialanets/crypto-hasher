@@ -19,18 +19,21 @@ const Newsboard = () => {
 
     const fetchNews = async () => {
         const { data }  = await axios.get(NewsTopics());
-
-        setNews(data.articles);
+        setNews(data.data);
+        console.log(data)
     };
 
+  
     useEffect(() => {
         fetchNews();
     }, []);
 
+
     return (
+    
         <>
         {
-            news.map((article) => {
+            news.map((data) => {
                 return<div>
                 <Grid container spacing={4}>
                 <Grid item xs={5}>
@@ -44,7 +47,7 @@ const Newsboard = () => {
                         <CardMedia 
                             component="img"
                             height="200"
-                            image={article.urlToImage} 
+                            image={data.image_url} 
                         />
                         <CardContent>
                         <Typography variant="h5" component="div"
@@ -53,7 +56,7 @@ const Newsboard = () => {
                             fontFamily:'Montserrat',
                         }}
                         >
-                            {article.title}
+                            {data.title}
                           </Typography>
 
                             <Typography variant="body2" color="text.secondary"
@@ -62,8 +65,8 @@ const Newsboard = () => {
                                 margin:1
                             }}>
                             <a
-                            href={article.url}>
-                            {article.description} </a>
+                            href={data.news_url}>
+                            {data.title} </a>
                             </Typography>
                         </CardContent>
                  </Card>

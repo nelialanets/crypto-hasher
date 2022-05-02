@@ -20,7 +20,7 @@ const Newsboard = () => {
     const fetchNews = async () => {
         const { data }  = await axios.get(NewsTopics());
         setNews(data.data);
-        console.log(data)
+
     };
 
   

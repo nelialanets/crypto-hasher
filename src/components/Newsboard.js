@@ -33,11 +33,11 @@ const Newsboard = () => {
     return (
     
         <div className='main-container'>
+            <h1 className='newsFeed'> NEWS FEED</h1>
         {
             news.map((data) => {
-                return<div  >
-                 <Card  className='card'>
-                
+                return<div  className='card'>
+                 <Card >
                         <CardMedia 
                             component="img"
                             height="200"
@@ -49,8 +49,10 @@ const Newsboard = () => {
                             color:'black',
                             fontFamily:'Montserrat',
                         }}
-                        >
+                        > <a
+                            href={data.news_url}>
                             {data.title}
+                            </a>
                           </Typography>
 
                             <Typography variant="body2" color="text.secondary"

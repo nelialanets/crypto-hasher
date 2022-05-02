@@ -34,7 +34,7 @@ const Coinboard = () => {
                     src={coin?.image}
                     alt={coin.name}
                     height='100' 
-                    style={{ marginBottom: 10 }}
+                    style={{ marginBottom: '3px' }}
                 />
                 <span>
                     {coin?.symbol}

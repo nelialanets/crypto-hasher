@@ -1,0 +1,9 @@
+.h1-hasher{
+    color: black;
+    justify-content: center;
+    display: flex;
+    font-size: 18px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

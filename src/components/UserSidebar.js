@@ -9,6 +9,7 @@ import {auth} from '../firebase';
 import  {AiFillDelete}  from 'react-icons/ai'
 import { setDoc, doc } from 'firebase/firestore';
 import {db} from '../firebase'
+import '../styles/SideMenu.css'
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(d{3})+(?!\d))/g, ",")
@@ -78,7 +79,7 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                 sx={{
                     height: 38,
                     width: 38,
-                    marginLeft: '60rem',
+                    marginLeft: '70rem',
                     cursor: "pointer",
                     backgroundColor: "#29D7B9",
                 }}
@@ -110,18 +111,21 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                   gap: "20px",
                   height: "92%",
                 }}>
+                   <h1  className='h1-hasher'>
+                    CRYPTO-HASHER WATCHLIST</h1>
               <Avatar 
                 sx={{
                     height: 100,
                     width: 100,
-                    margin: 20,
-                    marginBottom: 5, 
+                    margin: 10,
+                    marginBottom: 2, 
                     cursor: "pointer",
                     backgroundColor: "#29D7B9",
                     }}
                     src={user.photoURL}
                     alt={user.displayName || user.email}
                 />
+                
             <span
                 style={{
                     width: "100%",
@@ -157,14 +161,14 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                     if (watchlist.includes(coin))
                       return (
                         <div style={{
-                          padding: 10,
+                          padding: 15,
                           borderRadius: 5,
                           color: "black",
                           width: "100%",
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
-                          backgroundColor: "#EEBC1D",
+                          backgroundColor: "#29D7B9",
                           boxShadow: "0 0 3px black",
                         }} >
                           <span>{coin}</span>
@@ -195,9 +199,9 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                   padding: '5px',
                   margin: '10px',
                   backgroundColor: '#29D7B9',
-                  color: 'white',
+                  color: 'black',
                   fontSize: 'midium',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
                   }}>
                 Log Out
             </Button>

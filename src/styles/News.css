@@ -1,13 +1,26 @@
 .main-container{
-    
     width: 100%;
     display: grid;
-    padding: 2rem;
+    padding: 1rem;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
-    
+    background-image: linear-gradient(to right, hsl(175, 43%, 17%), #000000)
+}
+.card{
+    margin-top: 25%;
+    display: grid;
 
-    
+}
+
+.newsFeed{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 72px;
+    background: -webkit-linear-gradient(rgb(6, 236, 253), rgb(2, 79, 102));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }

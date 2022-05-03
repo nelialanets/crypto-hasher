@@ -16,6 +16,7 @@ import {
     Tooltip,
     Legend,
     } from 'chart.js';
+import { padding } from '@mui/system';
     
     ChartJS.register(
     CategoryScale,
@@ -44,13 +45,14 @@ const { currency } = CryptoState();
     },[days]);
 
     return (
-            <div className='chart'
-
-            >
+            <div className='chart-container' >
+                
+                <div className='chart'
+                >
             {!historicData | flag===false ? (
                 <CircularProgress
                 style={{ color: '#29D7B9'}}
-                size={250}
+                size={300}
                 thickness={1}
                 />
             ) : (
@@ -59,8 +61,6 @@ const { currency } = CryptoState();
 
                     style={{
                         backgroundColor: "black",
-                        display: 'flex',
-                         width: '100%',
 
                     }}
                     data={{
@@ -90,9 +90,10 @@ const { currency } = CryptoState();
                         />
                         <div style={{
                             display: "flex",
-                            marginTop: 20,
+                             padding:'2%',
                             justifyContent: "space-around",
-                            width: "100%"
+                            width: "100%",
+                            backgroundColor:"#29D7B9"
                         }}>
                         {chartDays.map((day) => (
                             <SelectButton
@@ -102,9 +103,9 @@ const { currency } = CryptoState();
                             >{day.label}</SelectButton>
                             ))}
                         </div>
-
                     </div>
                 )}
+            </div>
             </div>
   );
 };

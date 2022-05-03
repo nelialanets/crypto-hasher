@@ -105,6 +105,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
              fontFamily:'Montserrat',
              marginBottom:'1%',
              fontSize:"300%",
+     
           }}
           >
           {coin?.name}
@@ -115,9 +116,9 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           className='description'
           sx={{
             display:'flex',
-            width:'30rem',
+            width:'40rem',
             fontFamily:'Montserrat',
-            paddingTop:0,
+            paddingTop:2,
             fontSize:"100%",
             flexDirection:'column',
           }}>
@@ -126,10 +127,9 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
         </Typography>
 
         <div style={{
-          marginBottom:"5%"
+          marginBottom:"5%",
           }} >
         <span style={{display: "flex",
-          marginTop: "1%",
         }}>
             <Typography 
               variant='h5' 
@@ -138,7 +138,6 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
                 fontSize: '100',
                 flesDirections: 'column',
                 fontFamily:'Montserrat',
-
               }}
               >
               Rank:
@@ -180,7 +179,7 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
               <Button
               variant='outlined'
               style={{
-              width:'40%',
+              width:'55%',
                height:40,
                padding:'5px',
                margin:'2px',
@@ -193,11 +192,10 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
             </Button>
             )}
         </div>
-      </div>
-      <div className="coinInfo-component">
-        <CoinInfo coin={coin} />
         </div>
-    </div>
+        <CoinInfo coin={coin} />
+  </div>
+    
   )
 }
 

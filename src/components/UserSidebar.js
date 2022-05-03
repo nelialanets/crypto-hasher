@@ -50,9 +50,10 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
     try {
       await setDoc(
         coinRef,
-        { coins: watchlist.filter((watch) => watch !== coin?.id) },
+        { coins: watchlist.filter((watch) =>  watch !== coin) },
         { merge: true }
       );
+      
 
       setAlert({
         open: true,
@@ -158,6 +159,7 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
               }}>
               </span>
               {watchlist.map((coin) => {
+                  {console.log(coin)}
                     if (watchlist.includes(coin))
                       return (
                         <div className='listBar'>
@@ -167,12 +169,13 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                           <span 
                             >
                             {symbol}{" "}
-                            {numberWithCommas(coins)}
+                            {numberWithCommas(coin)}
                             <AiFillDelete
                               style={{ cursor: "pointer" }}
                               fontSize="16"
                               onClick={() => removeFromWatchlist(coin)}
                             />
+
                           </span>
 
                         </div>

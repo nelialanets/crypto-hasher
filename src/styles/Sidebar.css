@@ -21,3 +21,27 @@
     padding-top: 0;
     text-align: justify;
 }
+.chart{
+    display: flex;
+    padding: 5px;  
+}
+
+.sidebar{
+        display:flex;
+        /* flex-direction:column; */
+        margin-top:25;
+        width: 100%;
+      
+}
+.main-coinInfo{
+    display: flex;
+    width:50%;
+    height: 100vh;
+    margin-left: 5%;
+    padding: 5px;
+}
+.coinInfo-component{
+    display: flex;
+    width:'1000rem'
+  
+}

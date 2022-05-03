@@ -9,12 +9,16 @@
 }
 
 .listBar{
-    padding: 5;
-   width: 100%;
+   width: 60%;
+   padding: 3%;
    display: grid;
+   margin: 5%;
    flex-direction:column;
    align-items: center;
    background-color: #29D7B9;
-   box-shadow: 0 0 3px black;
+   border: none;
+   font-weight: 100px;
+   border-radius: 5px;
+   box-shadow: black;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

@@ -45,14 +45,7 @@ const { currency } = CryptoState();
 
     return (
             <div className='chart'
-                style={{
-                    // display: 'flex',
-                    // flexDirection: 'f',
-                    width:'50%',
-                    justifyContent:'center',
-                    marginLeft:'47rem',
-                    padding:'1rem',
-                }}
+
             >
             {!historicData | flag===false ? (
                 <CircularProgress
@@ -61,11 +54,13 @@ const { currency } = CryptoState();
                 thickness={1}
                 />
             ) : (
-                <>
+                <div>
                 <Line
 
                     style={{
                         backgroundColor: "black",
+                        display: 'flex',
+                         width: '100%',
 
                     }}
                     data={{
@@ -107,7 +102,8 @@ const { currency } = CryptoState();
                             >{day.label}</SelectButton>
                             ))}
                         </div>
-                    </>
+
+                    </div>
                 )}
             </div>
   );

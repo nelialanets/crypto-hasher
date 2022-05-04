@@ -15,10 +15,12 @@
    margin: 5%;
    flex-direction:column;
    align-items: center;
-   background-color: #29D7B9;
-   border: none;
+   border: 1px solid #29D7B9;
    font-weight: 100px;
    border-radius: 5px;
-   box-shadow: black;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.trash{
+    margin-left: 10px;
 }

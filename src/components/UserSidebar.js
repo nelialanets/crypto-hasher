@@ -141,11 +141,10 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
             <div className="watchList"
             style={{
               // flex:1,
-              width:'100%', margin:'15px',
-              backgroundColor:'grey',
+              width:'100%', margin:'10px',
               borderRadius:10,
               margin:'5px',
-              padding:15,
+              padding:10,
               display:'grid',
               flexDirection:'colum',
               alignItems:'center',
@@ -165,12 +164,11 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                       return (
                         <div className='listBar'>
                          
-                          <span 
-                            >
+                          <span className='trash'>
                             {symbol}{" "}
                             {numberWithCommas(coin)}
                             <AiFillDelete
-                              style={{ cursor: "pointer",  }}
+                              style={{ cursor: "pointer", padding:'1px', }}
                               fontSize="20"
                               onClick={() => removeFromWatchlist(coin)}
                             />
@@ -182,13 +180,13 @@ const {user, setAlert, watchlist, coins, symbol} = CryptoState();
                   })}
                 </div>
               </div>
-            <Button
+            <Button className='logOut'
                 onClick={logOut}
                 sx={{
                   height: 50,
                   padding: '5px',
                   margin: '10px',
-                  backgroundColor: '#29D7B9',
+                  border: '1px solid #29D7B9',
                   color: 'black',
                   fontSize: 'midium',
                   fontWeight: 'bold',

@@ -60,7 +60,7 @@ const { currency } = CryptoState();
                 <Line
 
                     style={{
-                        backgroundColor: "black",
+                        // backgroundColor: "black",
 
                     }}
                     data={{
@@ -93,7 +93,8 @@ const { currency } = CryptoState();
                              padding:'2%',
                             justifyContent: "space-around",
                             width: "100%",
-                            backgroundColor:"#29D7B9"
+                            border:'1px solid #29D7B9'
+                            // backgroundColor:"#29D7B9"
                         }}>
                         {chartDays.map((day) => (
                             <SelectButton

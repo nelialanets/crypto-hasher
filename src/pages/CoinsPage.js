@@ -110,34 +110,33 @@ if (!coin) return <LinearProgress style={{ backgroundColor: "gold" }} />;
           >
           {coin?.name}
         </Typography>
-
         <Typography 
           variant="subtitle1" 
           className='description'
           sx={{
             display:'flex',
-            width:'40rem',
+            width:'25rem',
             fontFamily:'Montserrat',
             paddingTop:2,
             fontSize:"100%",
             flexDirection:'column',
           }}>
-          <hr></hr>
+          <div className="vl"></div>
           {parse(coin?.description.en.split(". ")[0])}.
         </Typography>
 
         <div style={{
           marginBottom:"5%",
           }} >
-        <span style={{display: "flex",
+        <span style={{display: "flex", 
         }}>
             <Typography 
               variant='h5' 
               className='heading'
               sx={{
-                fontSize: '100',
+  
                 flesDirections: 'column',
-                fontFamily:'Montserrat',
+                fontWeight:"600%"
               }}
               >
               Rank:

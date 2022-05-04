@@ -42,6 +42,8 @@ JavaScript    | React     | [Firebase](https://firebase.google.com/)   | [CoinGe
 
 <img width="1792" alt="Screen Shot 2022-05-03 at 10 59 24 PM" src="https://user-images.githubusercontent.com/78198715/166629949-470df890-8853-4fb4-87bd-44ee5452ce7f.png">
 
+<img width="1792" alt="Screen Shot 2022-05-03 at 10 59 36 PM" src="https://user-images.githubusercontent.com/78198715/166630341-e18dbd34-8a2c-4e28-9660-28513bdd9a5f.png">
+
 
 <img width="1792" alt="Screen Shot 2022-05-03 at 11 00 08 PM" src="https://user-images.githubusercontent.com/78198715/166629974-f4a54ec2-28a0-471a-b55e-1be8fa7f2274.png">
 

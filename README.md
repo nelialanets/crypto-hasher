@@ -4,7 +4,7 @@
 
 Crypto Hasher. This application is used to create crypto currency watchlists to help manage all of your cryto needs.  Have the ability to create wathclists, add specific coins to your watchlist and view data on those coins.  View prices, action, and coming soon - optimized news streams for the crypto currencies in your watchlist.  
 
-link to the app: TBD
+link to the app: https://crypto-hasher-1.web.app/
 
 ## Technologies Used
 Language      | Framework |  Backend   | API's                                                       | CSS                             | 
